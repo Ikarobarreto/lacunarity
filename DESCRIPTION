@@ -1,0 +1,16 @@
+Package: lacunarity
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: Ikaro Barreto <daniel.carvalho.ib@gmail.com>
+Maintainer: Ikaro Barreto <daniel.carvalho.ib@gmail.com>
+Depends: R (>= 3.0.1)
+Description: Lacunarity describes the similarity of parts from different regions of a series at a given scale. The lacunarity 
+  index averages the behavior of variable size structures in a binary series. The generalized 
+  lacunarity concept provides an enhanced measure of the organization of the gaps over all measured scales and over the
+  different arrangements of smaller and larger gaps in time series.
+License: GPL (>= 2.0)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Imports: zoo, plyr, stats
