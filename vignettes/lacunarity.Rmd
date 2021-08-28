@@ -1,0 +1,19 @@
+---
+title: "lacunarity"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{lacunarity}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(lacunarity)
+```

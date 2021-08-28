@@ -16,3 +16,7 @@ RoxygenNote: 7.1.1
 Imports: zoo, plyr, stats
 URL: https://github.com/Ikarobarreto/lacunarity
 BugReports: https://github.com/Ikarobarreto/lacunarity/issues
+Suggests: 
+    rmarkdown,
+    knitr
+VignetteBuilder: knitr
