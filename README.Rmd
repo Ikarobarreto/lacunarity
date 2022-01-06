@@ -18,7 +18,11 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of lacunarity is to ...
+The goal of lacunarity is to estimate lacunarity and generalized lacunarity for unidimensional time series.
+
+## Methodology
+
+
 
 ## Installation
 
@@ -36,25 +40,41 @@ devtools::install_github("Ikarobarreto/lacunarity")
 ```
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+We are going to simulate a two sets of 1200 bernoulli random variables of 0's an 1's with probabilities of success of 80% and 50% calculating lacunairty of them using lac function:
 
-```{r example}
+```{r example 1}
 library(lacunarity)
+x<-rbinom(n=1200,size=1,prob=.8)
+y<-rbinom(n=1200,size=1,prob=.5)
+
+lac(x)
+lac(y)
 ## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+The results showed $$\gamma$$, $$\Delta(s)$$, and possible $$s$$. We can observe that $$s$$ parameter has less possible values for y than x and we could infer is because of lower probability of success. However, this is not true, because some coded time series could have 50% of 0's and has different lacunatiries. For example, lets simulate a 25 sequences of 0's and 1's sub-sequences of size 8 and 16 each: 
 
-```{r cars}
-summary(cars)
+```{r example 2}
+library(lacunarity)
+z<-c(rep(c(rep(1,8),rep(0,8)),25),rep(c(rep(1,16),rep(0,16)),25))
+table(z)
+lac(x)
+lac(z)
+## basic example code
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>.
+As we can see, both series x and z has around 50% probability of 0's and 1's but different lacunarities.
 
-You can also embed plots, for example:
+Now, we are going to simulate a two sets of 10000 bernoulli random variables of 0's an 1's with probabilities of success of 80% and 50% calculating generalized lacunairty of them using genlac function:
 
-```{r pressure, echo = FALSE}
-plot(pressure)
+```{r example 3}
+library(lacunarity)
+x<-rbinom(n=10000,size=1,prob=.8)
+y<-rbinom(n=10000,size=1,prob=.5)
+
+genlac(x)
+genlac(y)
+## basic example code
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+The results showed $$s$$,$$q$$, $$\gamma(s)$$, and $$\Delta_q(s)$$.
