@@ -8,4 +8,6 @@
 
 * This is a new release.
 
-The note is the standard "New submission" message.
+The note is the standard "New submission" message. It also flags possibly
+misspelled words in DESCRIPTION ("Lacunarity", "lacunarity", "unidimensional");
+these are spelled correctly ("lacunarity" is the established name of the method).

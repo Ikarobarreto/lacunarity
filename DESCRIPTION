@@ -1,6 +1,6 @@
 Package: lacunarity
 Type: Package
-Title: Lacunarity and Generalized Lacunarity for Binary Time Series
+Title: Standard and Generalized Lacunarity for Binary Time Series
 Version: 0.1.0
 Authors@R:
     person(given = "Ikaro",
