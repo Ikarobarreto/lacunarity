@@ -1,11 +1,4 @@
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 # lacunarity
-
-<!-- badges: start -->
-
-<!-- badges: end -->
 
 **lacunarity** estimates the lacunarity and the generalized lacunarity
 of unidimensional binary time series. Lacunarity is a scale-dependent
@@ -15,18 +8,22 @@ series that are clustered from series that are evenly spread.
 
 ## Methodology
 
-For a sliding box of size $s$, the box mass $m$ is the number of ones it
-covers. From the distribution of box masses, the lacunarity index is
+For a sliding box of size $`s`$, the box mass $`m`$ is the number of
+ones it covers. From the distribution of box masses, the lacunarity
+index is
 
-$$\Lambda(s) = \frac{\langle m^2 \rangle}{\langle m \rangle^2} = 1 + \frac{\mathrm{Var}(m)}{\langle m \rangle^2} \ge 1,$$
+``` math
+\Lambda(s) = \frac{\langle m^2 \rangle}{\langle m \rangle^2} = 1 + \frac{\mathrm{Var}(m)}{\langle m \rangle^2} \ge 1,
+```
 
-so $\Lambda(s) = 1$ means a perfectly homogeneous pattern and larger
+so $`\Lambda(s) = 1`$ means a perfectly homogeneous pattern and larger
 values mean gappier, more heterogeneous textures. The *generalized*
-lacunarity $\Lambda_q(s) = \left(Z_{2q}(s)/Z_q(s)^2\right)^{1/q}$
-extends this to an arbitrary moment order $q$, yielding a spectrum of
-scaling exponents $\gamma(q)$. See `vignette("lacunarity")` for the full
-theory and references (Allain & Cloitre, 1991; Vernon-Carter et al.,
-2009).
+lacunarity $`\Lambda_q(s) = \left(Z_{2q}(s)/Z_q(s)^2\right)^{1/q}`$
+extends this to an arbitrary moment order $`q`$, yielding a spectrum of
+scaling exponents $`\gamma(q)`$. See
+[`vignette("lacunarity")`](https://ikarobarreto.github.io/lacunarity/articles/lacunarity.md)
+for the full theory and references (Allain & Cloitre, 1991;
+Vernon-Carter et al., 2009).
 
 ## Installation
 
@@ -46,8 +43,9 @@ devtools::install_github("Ikarobarreto/lacunarity")
 
 ## Example
 
-`lac()` returns the lacunarity scaling exponent `y`, the lacunarities
-`Ds` at each scale and the box scales `s`:
+[`lac()`](https://ikarobarreto.github.io/lacunarity/reference/lac.md)
+returns the lacunarity scaling exponent `y`, the lacunarities `Ds` at
+each scale and the box scales `s`:
 
 ``` r
 library(lacunarity)
@@ -85,8 +83,9 @@ c(lac_z = lac(z)$y, lac_w = lac(w)$y)            # different lacunarity
 #> 0.1908516 0.1142697
 ```
 
-`genlac()` returns the generalized lacunarity; its scaling spectrum `yq`
-over the moment orders `q` summarises how small and large gaps scale:
+[`genlac()`](https://ikarobarreto.github.io/lacunarity/reference/genlac.md)
+returns the generalized lacunarity; its scaling spectrum `yq` over the
+moment orders `q` summarises how small and large gaps scale:
 
 ``` r
 g <- genlac(x)
@@ -95,4 +94,24 @@ round(g$yq, 3)
 #> [11]  0.014  0.020  0.023  0.025  0.027  0.027  0.028  0.028  0.028  0.028
 ```
 
-See `vignette("lacunarity")` for plots and a full walkthrough.
+See
+[`vignette("lacunarity")`](https://ikarobarreto.github.io/lacunarity/articles/lacunarity.md)
+for plots and a full walkthrough.
+
+# Package index
+
+## Lacunarity measures
+
+Lacunarity and generalized lacunarity of binary time series.
+
+- [`lac()`](https://ikarobarreto.github.io/lacunarity/reference/lac.md)
+  : Lacunarity index of a binary series
+- [`genlac()`](https://ikarobarreto.github.io/lacunarity/reference/genlac.md)
+  : Generalized lacunarity of a binary series
+
+# Articles
+
+### All vignettes
+
+- [Lacunarity and generalized lacunarity for binary time
+  series](https://ikarobarreto.github.io/lacunarity/articles/lacunarity.md):

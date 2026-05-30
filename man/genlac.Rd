@@ -2,26 +2,49 @@
 % Please edit documentation in R/Lacunarity.R
 \name{genlac}
 \alias{genlac}
-\title{Generalized lacunarity index}
+\title{Generalized lacunarity of a binary series}
 \usage{
 genlac(x)
 }
 \arguments{
-\item{x}{is a vector of 0's and 1's}
+\item{x}{a binary vector of 0's and 1's.}
 }
 \value{
-s is the box scale
-
-q is the moment order
-
-y(q) is the lacunarity scaling exponent gamma(q)
-
-Dqs is the lacunarity for the box scale and q-moment
+A list with components:
+  \describe{
+    \item{\code{s}}{the dyadic box scales \eqn{s = 2^i}.}
+    \item{\code{q}}{the moment orders.}
+    \item{\code{yq}}{the generalized scaling exponents \eqn{\gamma(q)}.}
+    \item{\code{Dqs}}{the matrix of generalized lacunarities
+      \eqn{\Lambda_q(s)} (rows index \code{q}, columns index \code{s}).}
+  }
 }
 \description{
-Calculates the Generalized lacunarity index of a binary series
+Computes the generalized (multifractal-like) lacunarity \eqn{\Lambda_q(s)} of
+a binary time series and the spectrum of scaling exponents \eqn{\gamma(q)}.
+}
+\details{
+The ordinary lacunarity is extended to an arbitrary moment order \eqn{q} by
+\deqn{\Lambda_q(s) = \left[ \frac{Z(2q,s)}{Z(q,s)^2} \right]^{1/q},}
+where \eqn{Z(q,s)} is the \eqn{q}-th moment of the gliding-box mass
+distribution at scale \eqn{s}. Large positive \eqn{q} emphasises dense boxes
+and negative \eqn{q} emphasises sparse boxes, so the curve \eqn{q \mapsto
+\gamma(q)}, with \eqn{\gamma(q)} the slope of \eqn{\log_{10}\Lambda_q(s)} on
+\eqn{\log_{10} s}, describes how gaps of different magnitudes scale. Orders
+\eqn{q} range over \eqn{\{-10, \dots, 10\} \setminus \{0\}}.
 }
 \examples{
-x<-rbinom(1000,1,0.85)
+x <- rbinom(1000, 1, 0.85)
 genlac(x)
+}
+\references{
+Vernon-Carter, J., Lobato-Calleros, C., Escarela-Perez, R., Rodriguez, E. and
+Alvarez-Ramirez, J. (2009). A suggested generalization for the lacunarity
+index. \emph{Physica A}, 388(20), 4305-4314.
+
+Allain, C. and Cloitre, M. (1991). Characterizing the lacunarity of random
+and deterministic fractal sets. \emph{Physical Review A}, 44(6), 3552-3558.
+}
+\seealso{
+\code{\link{lac}} for the ordinary lacunarity index.
 }

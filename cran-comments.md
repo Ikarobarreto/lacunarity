@@ -1,10 +1,11 @@
 ## Test environments
-* local R installation, R 4.1.0
-* ubuntu 16.04 (on travis-ci), R 4.1.0
-* win-builder (devel)
+* local Windows 10 install, R 4.5.1
+* win-builder (devel and release)
 
 ## R CMD check results
 
 0 errors | 0 warnings | 1 note
 
 * This is a new release.
+
+The note is the standard "New submission" message.

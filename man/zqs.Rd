@@ -2,18 +2,22 @@
 % Please edit documentation in R/Lacunarity.R
 \name{zqs}
 \alias{zqs}
-\title{Moments generating Function}
+\title{Moment generating function of the box masses}
 \usage{
 zqs(mat, q)
 }
 \arguments{
-\item{mat}{is a two-column matrix with x and p(x)}
+\item{mat}{a two-column table with the distinct masses \code{x} and their
+frequencies \code{freq}.}
 
-\item{q}{is the moment order}
+\item{q}{the moment order.}
 }
 \value{
-q-moment of a frequency distribution of the box masses
+The \eqn{q}-th moment of the box-mass distribution.
 }
 \description{
-Calculates the q-moment of frequency distribution of the box masses
+Internal helper that computes the \eqn{q}-th moment
+\eqn{Z(q) = \sum_m m^q\, Q(m)} of a box-mass frequency distribution, where
+\eqn{Q(m)} is the relative frequency of boxes carrying mass \eqn{m}.
 }
+\keyword{internal}

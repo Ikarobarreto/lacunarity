@@ -1,0 +1,11 @@
+url: https://ikarobarreto.github.io/lacunarity
+
+template:
+  bootstrap: 5
+
+reference:
+- title: Lacunarity measures
+  desc: Lacunarity and generalized lacunarity of binary time series.
+  contents:
+  - lac
+  - genlac

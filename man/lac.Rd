@@ -2,24 +2,50 @@
 % Please edit documentation in R/Lacunarity.R
 \name{lac}
 \alias{lac}
-\title{lacunarity index}
+\title{Lacunarity index of a binary series}
 \usage{
 lac(x)
 }
 \arguments{
-\item{x}{is a vector of 0's and 1's}
+\item{x}{a binary vector of 0's and 1's.}
 }
 \value{
-y is the lacunarity scaling exponent
-
-Ds is the lacunarity for the box scale
-
-s is the box scale
+A list with components:
+  \describe{
+    \item{\code{y}}{the lacunarity scaling exponent \eqn{\gamma}.}
+    \item{\code{Ds}}{the lacunarity \eqn{\Lambda(s)} at each scale.}
+    \item{\code{s}}{the dyadic box scales \eqn{s = 2^i}.}
+  }
 }
 \description{
-Calculates the lacunarity index of a binary series
+Computes the gliding-box lacunarity index \eqn{\Lambda(s)} of a binary time
+series across dyadic scales, together with its scaling exponent.
+}
+\details{
+A box of size \eqn{s} is slid one observation at a time along the series and
+its mass \eqn{m} (the number of ones it covers) is recorded. Writing
+\eqn{Z(q,s)} for the \eqn{q}-th moment of the resulting box-mass
+distribution, the lacunarity index is
+\deqn{\Lambda(s) = \frac{Z(2,s)}{Z(1,s)^2}
+                 = 1 + \frac{\mathrm{Var}(m)}{\mathrm{mean}(m)^2},}
+so that \eqn{\Lambda(s) \ge 1}, with equality only for a translationally
+homogeneous pattern. Larger values indicate gappier, more heterogeneous
+textures. The scaling exponent \code{y} is the slope of
+\eqn{\log_2 \Lambda(s)} regressed on \eqn{\log_2 s}. Scales are dyadic,
+\eqn{s = 2^i}, and capped by the longest run of ones.
 }
 \examples{
-x<-rbinom(1000,1,0.85)
+x <- rbinom(1000, 1, 0.85)
 lac(x)
+}
+\references{
+Allain, C. and Cloitre, M. (1991). Characterizing the lacunarity of random
+and deterministic fractal sets. \emph{Physical Review A}, 44(6), 3552-3558.
+
+Plotnick, R. E., Gardner, R. H., Hargrove, W. W., Prestegaard, K. and
+Perlmutter, M. (1996). Lacunarity analysis: a general technique for the
+analysis of spatial patterns. \emph{Physical Review E}, 53(5), 5461-5468.
+}
+\seealso{
+\code{\link{genlac}} for the generalized lacunarity spectrum.
 }
