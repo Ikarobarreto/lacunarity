@@ -5,6 +5,10 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/lacunarity)](https://CRAN.R-project.org/package=lacunarity)
+[![CRAN
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/lacunarity)](https://CRAN.R-project.org/package=lacunarity)
 <!-- badges: end -->
 
 **lacunarity** estimates the lacunarity and the generalized lacunarity
